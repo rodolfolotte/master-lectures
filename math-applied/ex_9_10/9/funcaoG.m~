@@ -1,0 +1,3 @@
+function G = funcaoG(x,y,z)
+   G = -500*y + 5000*z;
+end

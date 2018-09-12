@@ -1,0 +1,11 @@
+animal(A):-mammal(A).
+animal(mammal).
+animal(fish).
+mammal(whale).
+mammal(bear).
+mammal(cat).
+lives(fish,water).
+lives(whale,water).
+has(bear,fur).
+has(cat,fur).
+has(mammal,vertebra).

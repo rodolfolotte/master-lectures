@@ -1,0 +1,44 @@
+filho(X,Y) :- pai(Y,X).
+filho(X,R) :- mae(R,X).
+irma(A,B) :- (pai(M,A),pai(M,B),mulher(A));(mae(G,A),mae(G,B),mulher(A)).
+avô(A,B) :- filho(M,A),(pai(M,B);mae(M,B)),homem(A).
+avó(A,B) :- filho(M,A),(pai(M,B);mae(M,B)),mulher(A).
+neto(A,B) :- avô(B,A), avó(B,A).
+avos(A,B) :- filho(M,A),(pai(M,B);mae(M,B)),(homem(A);mulher(A)).
+
+mulher(maria).
+mulher(ana).
+mulher(paula).
+mulher(carla).
+mulher(bruna).
+mulher(carol).
+
+homem(carlos).
+homem(jose).
+homem(marcos).
+homem(davi).
+homem(pedro).
+homem(joao).
+homem(vitor).
+
+pai(carlos,jose).
+pai(jose,marcos).
+pai(davi,ana).
+pai(davi,pedro).
+pai(pedro,joao).
+pai(pedro,carla).
+pai(vitor,carol).
+
+mae(maria,jose).
+mae(ana,marcos).
+mae(paula,ana).
+mae(paula,pedro).
+mae(carol,joao).
+mae(carol,carla).
+mae(bruna,carol).
+
+
+
+
+
+

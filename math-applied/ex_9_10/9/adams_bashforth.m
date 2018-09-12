@@ -1,0 +1,17 @@
+function [x y z] = adams_bashforth(x0,y0,z0,H,N)
+   x(1) = x0;
+   y(1) = y0;
+   z(1) = z0;
+   h = H/N;
+
+   % Primeiro passo usando Euler Explicito
+   x(2) = x0 + h*funcaoF(x0,y0,z0);
+   y(2) = y0 + h*funcaoG(x0,y0,z0);
+   z(2) = z0 + h*funcaoH(x0,y0,z0);
+   for i=3:N+1
+      x(i) = x(i-1) + (h/2)*(3*funcaoF(x(i-1),y(i-1),z(i-1)) - funcaoF(x(i-2),y(i-2),z(i-2)));
+      y(i) = y(i-1) + (h/2)*(3*funcaoG(x(i-1),y(i-1),z(i-1)) - funcaoG(x(i-2),y(i-2),z(i-2)));
+      z(i) = z(i-1) + (h/2)*(3*funcaoH(x(i-1),y(i-1),z(i-1)) - funcaoH(x(i-2),y(i-2),z(i-2)));
+   end
+end
+
